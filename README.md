@@ -24,8 +24,8 @@ Available scripts
   * Uses subroutines from [subroutines_mapmaking.py](subroutines_mapmaking.py).
 
 
-Data recovery
--------------
+Online data
+-----------
 
 * JCMT observations of NGC 2071 can be found via the [JCMT Science Archive](https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/en/jcmt/) hosted at CADC. See also [the JCMT data access page](https://www.eaobservatory.org/jcmt/data-access/).
   * The data reduction procedure is described in [Lyo et al. 2021](https://iopscience.iop.org/article/10.3847/1538-4357/ac0ce9), Section 2.
@@ -54,6 +54,10 @@ Data recovery
 
 Data formatting
 ---------------
+
+The data files recovered in [the previous section](#Online-data) all have different units and formats. This section contains the instructions to fix their format to make sets of data:
+1. Maps with a common format and units, but each retaining their original ixel and beam size ('orignal pixel' data);
+2. Maps resampled and smoothed to a common pixel and beam size (8'' and 18''.9, respectively), for direct inter-band comparison. 
 
 
 Data analysis
