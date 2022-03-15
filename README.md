@@ -1,7 +1,7 @@
 # Fanciullo_etal_2022_BISTRO-HAWCplus_N2071_polarimetry
 
-Software used:
---------------
+Software used
+-------------
 
 * Python. The scripts have been tested up to version 3.9.7, using IPython 7.25.0. Packages used:
   * aplpy
@@ -17,15 +17,15 @@ Software used:
   * smurf
 
 
-Available scripts:
-------------------
+Available scripts
+-----------------
 
 * [mapmaker.py](mapmaker.py): Converts the data files from their original format to one that can be used by the other scripts.
   * Uses subroutines from [subroutines_mapmaking.py](subroutines_mapmaking.py).
 
 
-Data recovery:
---------------
+Data recovery
+-------------
 
 * JCMT observations of NGC 2071 can be found via the [JCMT Science Archive](https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/en/jcmt/) hosted at CADC. See also [the JCMT data access page](https://www.eaobservatory.org/jcmt/data-access/).
   * The data reduction procedure is described in [Lyo et al. 2021](https://iopscience.iop.org/article/10.3847/1538-4357/ac0ce9), Section 2.
@@ -49,18 +49,18 @@ Data recovery:
    * HGBS_orionB_dust_temperature_map.fits
    * HGBS_orionB_hires_column_density_map.fits
 
-   Since these maps cover a much larger area than is needed for the present work, we suggest to create a fits file of the N2071 area alone (see ['Data formatting'](#Data-formatting:) below).
+   Since these maps cover a much larger area than is needed for the present work, we suggest to create a fits file of the N2071 area alone (see ['Data formatting'](#Data-formatting) below).
 
 
-Data formatting:
-----------------
+Data formatting
+---------------
 
 
-Data anlysis:
+Data analysis
 -------------
 
 
-Plots:
-------
+Plots
+-----
 
 
