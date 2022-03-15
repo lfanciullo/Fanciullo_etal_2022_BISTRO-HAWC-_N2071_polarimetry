@@ -45,7 +45,7 @@ Data recovery:
   > (download folder name)/data/SOFIA/HAWC_PLUS/L4/p10197/data/g1/F0616_HA_POL_0701309_HAWEHWPE_PMP_067-102.fits'
 
   for band E, respectively. 
-* Herschel data
+* The Herschel data can be downloaded from [the Herschel Gould Belt Survey Archive](http://gouldbelt-herschel.cea.fr/archives). 
 
 
 Data formatting:
