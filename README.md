@@ -45,7 +45,12 @@ Data recovery:
   > (download folder name)/data/SOFIA/HAWC_PLUS/L4/p10197/data/g1/F0616_HA_POL_0701309_HAWEHWPE_PMP_067-102.fits'
 
   for band E, respectively. 
-* The Herschel data can be downloaded from [the Herschel Gould Belt Survey Archive](http://gouldbelt-herschel.cea.fr/archives). 
+* The Herschel data can be downloaded from [the Herschel Gould Belt Survey Archive](http://gouldbelt-herschel.cea.fr/archives). This work used the temperature map and and the high-resolution column density map for Orion B:
+  > HGBS_orionB_dust_temperature_map.fits
+
+  > HGBS_orionB_hires_column_density_map.fits
+
+  Since these maps cover a much larger area than is needed for the present work, we suggest to create a fits file of the N2071 area alone (see ['Data formatting'](# Data formatting) below).
 
 
 Data formatting:
