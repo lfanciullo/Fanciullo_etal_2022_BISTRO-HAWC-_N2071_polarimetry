@@ -49,7 +49,7 @@ Data recovery:
    * HGBS_orionB_dust_temperature_map.fits
    * HGBS_orionB_hires_column_density_map.fits
 
-Since these maps cover a much larger area than is needed for the present work, we suggest to create a fits file of the N2071 area alone (see ['Data formatting'](# Data-formatting:) below).
+   Since these maps cover a much larger area than is needed for the present work, we suggest to create a fits file of the N2071 area alone (see ['Data formatting'](#Data-formatting:) below).
 
 
 Data formatting:
