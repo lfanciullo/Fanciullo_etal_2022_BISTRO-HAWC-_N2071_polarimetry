@@ -39,8 +39,11 @@ Data recovery:
     
 * The SOFIA (HAWC+) observations can be found at the [the SOFIA IRSA database](https://irsa.ipac.caltech.edu/applications/sofia/). The relevant data is in AORs 07_130_07 and 07_130_08 (processing level 4). Assuming the two files are downloaded together, the path to the .fits files is
   > (download folder name)/data/SOFIA/HAWC_PLUS/L4/p10196/data/g5/F0615_HA_POL_0701308_HAWDHWPD_PMP_071-114.fits
+  
   for band D, and
+
   > (download folder name)/data/SOFIA/HAWC_PLUS/L4/p10197/data/g1/F0616_HA_POL_0701309_HAWEHWPE_PMP_067-102.fits'
+
   for band E, respectively. 
 * Herschel data
 
