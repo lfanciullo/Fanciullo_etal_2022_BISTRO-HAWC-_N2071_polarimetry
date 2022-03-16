@@ -1,5 +1,7 @@
 # Fanciullo_etal_2022_BISTRO-HAWCplus_N2071_polarimetry
 
+**Nota: The page is still being completed. If you do not find something you were looking for, check again in a few days.**
+
 Software used
 -------------
 
