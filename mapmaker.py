@@ -23,31 +23,13 @@ folder = ''
 ## HAWC+ files
 filed = folder + 'SOFIA_retrievals_21-09-06/data/SOFIA/HAWC_PLUS/L4/p10196/data/g5/F0615_HA_POL_0701308_HAWDHWPD_PMP_071-114.fits'
 filee = folder + 'SOFIA_retrievals_21-09-06/data/SOFIA/HAWC_PLUS/L4/p10197/data/g1/F0616_HA_POL_0701309_HAWEHWPE_PMP_067-102.fits'
-''' Old pipeline
-filed = folder + 'SOFIA_retrievals_19-12-19/sofia_2019-10-02_HA_F615/p7514/F0615_HA_POL_0701308_HAWDHWPD_PMP_071-114.fits'    #N2071 D
-filee = folder + 'SOFIA_retrievals_19-12-19/sofia_2019-10-02_HA_F615-2/p7514/F0615_HA_POL_0701307_HAWEHWPE_PMP_067-102.fits'  #N2071 E
-filed = folder + 'SOFIA_retrievals_19-12-19/sofia_2019-10-02_HA_F621-2/p7526/F0621_HA_POL_0701306_HAWDHWPD_PMP_033-049.fits' #Serpens D
-filee = folder + 'SOFIA_retrievals_19-12-19/sofia_2019-10-10_HA_F621/p7526/F0621_HA_POL_0701305_HAWEHWPE_PMP_000-032.fits'   #Serpens E
-'''
+
 ## JCMT 850 um files
-# 4 arcsec pixel version
-files_850 = [folder + 'NGC_2071/NGC2071_4aspx_maps_2020-09/iext_all_subco_725.fits',  # I
-             folder + 'NGC_2071/NGC2071_4aspx_maps_2020-09/qext_all_725.fits',        # Q
-             folder + 'NGC_2071/NGC2071_4aspx_maps_2020-09/uext_all_725.fits']        # U
 # 8 arcsec pixel version
 files_850 = [folder + 'JCMT-iext_850_8pixel.fits',
              folder + 'JCMT-qext_850_8pixel.fits',
              folder + 'JCMT-uext_850_8pixel.fits']
-'''
-# Older 4 arcsec pixel version (until 2020-09-13)
-files_850 = [folder + 'NGC_2071/NGC2071_4aspx_maps_2020-07/iext_850_4p.fits',  # I
-             folder + 'NGC_2071/NGC2071_4aspx_maps_2020-07/qext_850_4p.fits',  # Q
-             folder + 'NGC_2071/NGC2071_4aspx_maps_2020-07/uext_850_4p.fits']  # U
-# 12 arcsec pixel version
-files_850 = [folder + 'NGC_2071/NGC2071_12aspx_maps_2020-09/iext_12pixel.fits',  # I
-             folder + 'NGC_2071/NGC2071_12aspx_maps_2020-09/qext_12pixel.fits',  # Q
-             folder + 'NGC_2071/NGC2071_12aspx_maps_2020-09/uext_12pixel.fits']  # U
-'''
+
 # Ancillary Herschel files
 file_h160 = folder + 'Ancillary_Herschel_data/N2071_160um_cutout.fits' # 'Ancillary_Herschel_data/orionB-S-160.fits' # 
 file_h250 = folder + 'Ancillary_Herschel_data/N2071_250um_cutout.fits' # 'Ancillary_Herschel_data/orionB-250.fits'   # 
@@ -57,14 +39,6 @@ file_h250 = folder + 'Ancillary_Herschel_data/N2071_250um_cutout.fits' # 'Ancill
 imap_d, qmap_d, umap_d = convertfiles(filed, instru = 'HAWC+', units = 'Jy/arcsec2')#, savefile = 'N2071_HAWC+D')
 imap_e, qmap_e, umap_e = convertfiles(filee, instru = 'HAWC+', units = 'Jy/arcsec2')#, savefile = 'N2071_HAWC+E')
 imap_850, qmap_850, umap_850 = convertfiles(files_850, instru = 'SCUBA2', units = 'Jy/arcsec2', beam = 14.1, savefile = 'N2071_JCMT-850-12as')
-'''
-# Older version
-imap_d, qmap_d, umap_d = convertfiles(filed, instru = 'HAWC+')#, savefile = 'N2071_HAWC+D')
-imap_e, qmap_e, umap_e = convertfiles(filee, instru = 'HAWC+')#, savefile = 'N2071_HAWC+E')
-imap_850, qmap_850, umap_850 = convertfiles(files_850, instru = 'SCUBA2')#, savefile = 'N2071_JCMT-850')
-#imap_h160 = convertfiles(file_h160, instru = 'Herschel')  # Only needed if you are using the full image
-#imap_h250 = convertfiles(file_h250, instru = 'Herschel')  # Only needed if you are using the full image
-'''
 
 
 ### AFTER RUNNING THE CODE ABOVE, RUN THE STARLINK COMMANDS FROM 'Starlink_commands_full_sample.txt' ###

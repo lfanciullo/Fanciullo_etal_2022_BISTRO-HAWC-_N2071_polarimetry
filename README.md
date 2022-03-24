@@ -19,19 +19,20 @@ Software used
   * smurf
 
 
-Available scripts
------------------
+Available scripts and files
+---------------------------
 
 * [mapmaker.py](mapmaker.py): Converts the data files from their original format to one that can be used by the other scripts.
+  * Uses subroutines from [subroutines_mapmaking.py](subroutines_mapmaking.py).
+* [data_analysis.py](data_analysis.py): Script to perform the analysis and create the plots shown in the article.
   * Uses subroutines from [subroutines_mapmaking.py](subroutines_mapmaking.py).
 
 
 Online data
 -----------
 
-* JCMT observations of NGC 2071 can be found via the [JCMT Science Archive](https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/en/jcmt/) hosted at CADC. See also [the JCMT data access page](https://www.eaobservatory.org/jcmt/data-access/).
-  * The data reduction procedure is described in [Lyo et al. 2021](https://iopscience.iop.org/article/10.3847/1538-4357/ac0ce9), Section 2.
-  * In the present work, the maps have been further rebinned from a pixel size of 4'' to 8''. The Starlink commands used to do so are as follows:
+* JCMT observations of NGC 2071 can be found via the [JCMT Science Archive](https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/en/jcmt/) hosted at CADC (See also [the JCMT data access page](https://www.eaobservatory.org/jcmt/data-access/)). The following instrutions assume you have dowmloaded the raw data from project code M16AL004, object name: NGC2071IR, instrument: SCUBA-2 POL-2.
+  * The *Starlink* commands to produce maps binned to a pixel size of 8'' (as opposed to the default 4'') are shown below. See also Section 2 of [Lyo et al. 2021](https://iopscience.iop.org/article/10.3847/1538-4357/ac0ce9) for a description of the data reduction procedure.
   
     > pol2map in=^infiles iout=iauto qout=! uout=! mapdir=maps qudir=qudata mapvar=no skyloop=no obsweight=no normalise=no pixsize=4
     >
@@ -58,7 +59,7 @@ Data formatting
 ---------------
 
 The data files recovered in [the previous section](#Online-data) all have different units and formats. This section contains the instructions to fix their format to make sets of data:
-1. Maps with a common format and units, but each retaining their original ixel and beam size ('orignal pixel' data);
+1. Maps with a common format and units, but each retaining their original pixel and beam size ('orignal pixel' data);
 2. Maps resampled and smoothed to a common pixel and beam size (8'' and 18''.9, respectively), for direct inter-band comparison. 
 
 
