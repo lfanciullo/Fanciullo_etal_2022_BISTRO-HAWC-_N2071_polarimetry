@@ -22,6 +22,7 @@ Software used
 Available scripts and files
 ---------------------------
 
+* [tab](tab) and [tab2](tab2): format tables needed to smooth the maps with *Starlink*.
 * [mapmaker.py](mapmaker.py): Converts the data files from their original format to one that can be used by the other scripts.
   * Uses subroutines from [subroutines_mapmaking.py](subroutines_mapmaking.py).
 * [data_analysis.py](data_analysis.py): Script to perform the analysis and create the plots shown in the article.
@@ -59,7 +60,7 @@ Data formatting
 ---------------
 
 The data files recovered in [the previous section](#Online-data) all have different units and formats. This section contains the instructions to fix their format to make sets of data:
-1. Maps with a common format and units, but each retaining their original pixel and beam size ('orignal pixel' data);
+1. Maps with a common format and units, but each retaining their original pixel and beam size ('original pixel' data);
 2. Maps resampled and smoothed to a common pixel and beam size (8'' and 18''.9, respectively), for direct inter-band comparison. 
 
 
