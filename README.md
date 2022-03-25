@@ -61,8 +61,16 @@ Data formatting
 
 The data files recovered in [the previous section](#Online-data) all have different units and formats. This section contains the instructions to fix their format to make sets of data:
 1. Maps with a common format and units, but each retaining their original pixel and beam size ('original pixel' data);
-2. Maps resampled and smoothed to a common pixel and beam size (8'' and 18''.9, respectively), for direct inter-band comparison. 
+2. Maps resampled and smoothed to a common pixel and beam size (8'' and 18''.9, respectively), for direct inter-band comparison.
 
+### HAWC+ and JCMT data ###
+This is done in three steps:
+* Run lines 16-41 of [mapmaker.py](mapmaker.py) to convert all maps to the same units and reformat them in a way that can be used by *Starlink*.
+* Run from shell the *Starlink* commands for resampling and smoothing maps (they can be found in lines 1-60 of the text file [Starlink_commands_full_sample.txt](Starlink_commands_full_sample.txt)).
+* Run the 
+
+### *Herschel* data ###
+Coming soon. 
 
 Data analysis
 -------------
