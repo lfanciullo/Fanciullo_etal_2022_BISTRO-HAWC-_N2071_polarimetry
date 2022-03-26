@@ -64,19 +64,28 @@ The data files recovered in [the previous section](#Online-data) all have differ
 2. Maps resampled and smoothed to a common pixel and beam size (8'' and 18''.9, respectively), for direct inter-band comparison.
 
 ### HAWC+ and JCMT data ###
-This is done in three steps:
-* Run lines 16-41 of [mapmaker.py](mapmaker.py) to convert all maps to the same units and reformat them in a way that can be used by *Starlink*.
-* Run from shell the *Starlink* commands for resampling and smoothing maps (they can be found in lines 1-60 of the text file [Starlink_commands_full_sample.txt](Starlink_commands_full_sample.txt)).
-* Run the 
+This is done in two steps:
+* Run lines 16-41 of [mapmaker.py](mapmaker.py) to convert all maps to the same units and reformat them in a way that can be used by *Starlink*. This creates the 'original pixel' data files.
+* Run from shell the *Starlink* commands for resampling and smoothing maps (they can be found in lines 1-60 of the text file [Starlink_commands_full_sample.txt](Starlink_commands_full_sample.txt)). This creats the resampled and smoothed files.
 
 ### *Herschel* data ###
-Coming soon. 
+*Work in progress*
+
+* A script doing the equivalent of what lines 14-61 of [mapmaker.py](mapmaker.py) do for HAWC+ and JCMT data is coming soon.
+* Resampling is done by running lines 66-76 of [Starlink_commands_full_sample.txt](Starlink_commands_full_sample.txt)). (*Herschel* data are not smoothed).
+
 
 Data analysis
 -------------
 
+Running lines 1-206 of [data_analysis.py](data_anlaysis.py) reads the reformatted IQU files (for HAWC+ and JCMT), uses them calculate the polarized quantities of interest (polarization fraction and angle in all bands, difference in polarization agle across bads) and creates masks to select the data by S/N and by position.
+
+This provides the user with the quantities needed to recreate the analysis in Fanciullo et al. 2022.
+
 
 Plots
 -----
+
+Running lines 212-1290 of [data_analysis.py](data_anlaysis.py) recreates the figures used in Fanciullo et al. 2022.
 
 
