@@ -78,7 +78,7 @@ This is done in two steps:
 Data analysis
 -------------
 
-Running lines 1-206 of [data_analysis.py](data_analysis.py) reads the reformatted IQU files (for HAWC+ and JCMT), uses them calculate the polarized quantities of interest (polarization fraction and angle in all bands, difference in polarization agle across bads) and creates masks to select the data by S/N and by position.
+Running lines 1-442 of [data_analysis.py](data_analysis.py) reads the reformatted IQU files (for HAWC+ and JCMT), uses them calculate the polarized quantities of interest (polarization fraction and angle in all bands, difference in polarization agle across bads) and creates masks to select the data by S/N and by position.
 
 This provides the user with the quantities needed to recreate the analysis in Fanciullo et al. 2022.
 
@@ -86,6 +86,6 @@ This provides the user with the quantities needed to recreate the analysis in Fa
 Plots
 -----
 
-Running lines 212-1290 of [data_analysis.py](data_analysis.py) recreates the figures used in Fanciullo et al. 2022.
+Running lines 454-1704 of [data_analysis.py](data_analysis.py) recreates the figures used in Fanciullo et al. 2022.
 
 

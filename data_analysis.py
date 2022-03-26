@@ -1702,24 +1702,6 @@ pmasked = np.ma.masked_where(selection, p_850.data) #delta_theta_de) #
 pmasked_1d = pmasked.ravel().compressed()
 np.min(pmasked_1d), np.median(pmasked_1d), np.max(pmasked_1d)
 np.isfinite(pmasked_1d).sum(), (pmasked_1d > 20.).sum()
-# No threshold on I:
-#  P max:     187% (154 um),   41% (214 um), 28  % (850 um)
-#  P median: 14.9% (154 um), 10.3% (214 um),  2.9% (850 um)
-#  P >  20%:  36.8% = 4259 / 11562 (154 um), 14.3% = 301 / 2107 (214 um), .5% = 11 / 2280 (850 um)
-#    >  30%:  20.0% = 2318 / 11562 (154 um),  1.9% =  40 / 2107 (214 um)
-#    >  40%:  10.6% = 1231 / 11562 (154 um),   .1% =   2 / 2107 (214 um)
-#    >  50%:   5.6% =  645 / 11562 (154 um)
-#    > 100%:    .4% =   47 / 11562 (154 um)
-# Threshold on I, single-band selection:
-#  P max:    24.9% (154 um), 17.5% (214 um), 5.7% (850 um)
-#  P median:  4.2% (154 um),  4.2% (214 um), 1.5% (850 um)
-#  P > 20%: .5% = 8 / 1584 (154 um), 0.0% = 0 / 771 (214 um), 0.0% = 0 / 1183 (850 um)
-# Threshold on I, 3-band selection:
-#  P max:    12.59% (154 um), 7.30% (214 um), 3.84% (850 um)
-#  P median:   .85% (154 um), 1.49% (214 um),  .86% (850 um)
-#  P > 20%:  None
-
-
 
 
 
@@ -1768,6 +1750,3 @@ MAD(y/x)
 #   Ratio (everywhere): 0.48 +- 0.10
 #   Ratio (< 90 as):    1.77 +- 0.64
 #   Ratio (> 90 as):    0.45 +- 0.06
-
-
-# Older version (P vs. I comparison with Aran) -- see V01
