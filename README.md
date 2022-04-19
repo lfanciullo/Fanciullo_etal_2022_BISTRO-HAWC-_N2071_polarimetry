@@ -22,11 +22,22 @@ Software used
 Available scripts and files
 ---------------------------
 
-* [tab](tab) and [tab2](tab2): format tables needed to smooth the maps with *Starlink*.
-* [mapmaker.py](mapmaker.py): Converts the data files from their original format to one that can be used by the other scripts.
-  * Uses subroutines from [subroutines_mapmaking.py](subroutines_mapmaking.py).
-* [data_analysis.py](data_analysis.py): Script to perform the analysis and create the plots shown in the article.
-  * Uses subroutines from [subroutines_mapmaking.py](subroutines_mapmaking.py).
+### Folders ###
+The scripts, as they are provided, use the following folders to store data:
+* The N2071 maps downloaded in their original form (see ['Online data'](#Online-data)) go into *data_downloaded*.
+* The maps after conversion into the final format (both with and without smoothing) go into *data_reprocessed*.
+* The output figures are saved in the main folder.
+
+The user can modify the folders and/or paths for the data; if so, however, the pathnames in [varnames.py](varnames.py) should be updated.
+
+
+### Files and scripts ###
+* [varnames.py](varnames.py) defines all the variables used in Python scripts. Any modifications to the standard variables -- e.g. to modify the file paths -- needs to be done here.
+* [Starlink_commands_HAWC+JCMT_sample.txt](Starlink_commands_HAWC+JCMT_sample.txt) and [Starlink_commands_Herschel_sample.txt](Starlink_commands_Herschel_sample.txt) contain examples of the *Starlink* commands used to resampla nad smooth the maps (see also ['Data formatting'](#Data-formatting)).
+  * [tab](tab) and [tab2](tab2): format tables needed to smooth the maps with *Starlink*.
+* [all_functions.py](all_functions.py) contains all the functions for reformatting the data used in other Python scripts.  
+* [data_analysis.py](data_analysis.py): Script to perform the analysis of the N2071  data and create the plots shown in the article.
+  * Uses functions from [all_functions.py](all_functions.py).
 
 
 Online data
@@ -59,20 +70,53 @@ Online data
 Data formatting
 ---------------
 
-The data files recovered in [the previous section](#Online-data) all have different units and formats. This section contains the instructions to fix their format to make sets of data:
-1. Maps with a common format and units, but each retaining their original pixel and beam size ('original pixel' data);
+The data files recovered in [the previous section](#Online-data) all have different units and formats. This section contains the instructions to fix their format and make two sets of data:
+1. Maps with a common format and units, retaining their original pixel and beam size ('original pixel' data);
 2. Maps resampled and smoothed to a common pixel and beam size (8'' and 18''.9, respectively), for direct inter-band comparison.
+By default all these are saved in the *data_reprocessed/* folder, (the value of *folder_reprocessed_data* in [varnames.py](varnames.py)).
 
 ### HAWC+ and JCMT data ###
-This is done in two steps:
-* Run lines 16-41 of [mapmaker.py](mapmaker.py) to convert all maps to the same units and reformat them in a way that can be used by *Starlink*. This creates the 'original pixel' data files.
-* Run from shell the *Starlink* commands for resampling and smoothing maps (they can be found in lines 1-60 of the text file [Starlink_commands_full_sample.txt](Starlink_commands_full_sample.txt)). This creats the resampled and smoothed files.
+The 'original pixel' maps can be created in Python running the following commands in the main repository:
+~~~python
+from all_functions import convertfiles
+from varnames import *
+
+filed = folder_download + file_d_download  # Read HAWC+ D band map
+imap_d, qmap_d, umap_d = convertfiles(filed, instru = 'HAWC+', units = 'Jy/arcsec2', savefile = folder_reprocessed_data + 'N2071_HAWC+D')  # Convert and save
+
+filee = folder_download + file_e_download  # Read HAWC+ E band map
+imap_e, qmap_e, umap_e = convertfiles(filee, instru = 'HAWC+', units = 'Jy/arcsec2', savefile = folder_reprocessed_data + 'N2071_HAWC+E')
+
+files_850 = [folder_download + s for s in files_850_download]  # Read JCMT 850 um map (3 separate files for I, Q and U)
+imap_850, qmap_850, umap_850 = convertfiles(files_850, instru = 'SCUBA2', units = 'Jy/arcsec2', beam = 14.1, savefile = folder_reprocessed_data + 'N2071_JCMT-850-8as')
+~~~
+The 'savefile' strings used in this example are chosen so that the output filenames will be the same as the default *files_(band)_originalpixel* variables in [varnames.py](varnames.py).
+
+To resample and smooth the data, run the *Starlink* commands in [Starlink_commands_HAWC+JCMT_sample.txt](Starlink_commands_HAWC+JCMT_sample.txt) from inside the *data_reprocessed/* folder. Running the *wcsalign* commands will return a comment similar to the following, which will require to press Enter to proceed:
+  > LBND - Lower pixel index bounds for output images /[-64,-64]/ > 
+  > UBND - Upper pixel index bounds for output images /[69,68]/ >
+  >
+  > The 1st NDF (filename) does not have the selected QUALITY component.
+  > The output FITS file will be produced for the remaining array components that were specified.
+
+The values used in [Starlink_commands_HAWC+JCMT_sample.txt](Starlink_commands_HAWC+JCMT_sample.txt) for the *gausmooth* 'fwhm' parameter are the ones needed to smooth all bands to the same resolution as the HAWC+E map (18''.9). The values depend on the original resolution and pixel size of the maps; if you want to change the maps' final resolution, modify the fwhm value according to section 2.3.1 of Fanciullo et al. 2022.
+
 
 ### *Herschel* data ###
 *Work in progress*
 
-* A script doing the equivalent of what lines 14-61 of [mapmaker.py](mapmaker.py) do for HAWC+ and JCMT data is coming soon.
-* Resampling is done by running lines 66-76 of [Starlink_commands_full_sample.txt](Starlink_commands_full_sample.txt)). (*Herschel* data are not smoothed).
+To create a coutout of the N2071 region out of the whole Orion B map, one can run the following Python commands from the main repository:
+~~~python
+from all_functions import herschel_cutout
+from varnames import *
+
+herschel_cutout(folder_download + file_Herschel_h2_large, fname_out = file_Herschel_h2_cutout, size = 20.)
+herschel_cutout(folder_download + file_Herschel_T_large, fname_out = file_Herschel_T_cutout, size = 20.)
+~~~
+
+The two cutouts thus created -- one for the column density, one for dust temperature -- are saved by default in the *data_reprocessed/* folder. We recommend to use a value of 20 or higher for the 'size' parameter (cutout edge size size, in arcmin). 
+
+To make a *P* vs. $\tau$ plot, as in section 3.4 of Fanciullo et al. 2022, the cutout maps need to be resampled to the pixel size of the HAWC+ and JCMT bands. This can be done by running the *Starlink* commands in [Starlink_commands_Herschel_sample.txt](Starlink_commands_Herschel_sample.txt) from inside the *data_reprocessed/* (or equivalent) folder. Note that these commands assume the default filenames from [varnames.py](varnames.py) are used; change the commands as appropriate if you are not using the default names.
 
 
 Data analysis

@@ -1,0 +1,26 @@
+﻿
+export STARLINK_DIR=/data/lfanciullo/star-2018A  # Change this to the path to Starlink in your computer
+source $STARLINK_DIR/etc/profile
+
+convert
+
+kappa
+
+# Resample (without smoothing) Herschel maps
+
+fits2ndf N2071_Herschel_h2_cutout.fits N2071_Herschel_h2_cutout.sdf extable=tab2
+fits2ndf N2071_Herschel_T_cutout.fits N2071_Herschel_T_cutout.sdf extable=tab2
+
+wcsalign in=N2071_Herschel_h2_cutout out=N2071_Herschel_h2_cutout_rebin-jcmt-pixelsize ref=N2071_JCMT-850_i+var_Jy-arcs2_pix8_beam18 method=Nearest conserve=no rebin=no
+wcsalign in=N2071_Herschel_h2_cutout out=N2071_Herschel_h2_cutout_rebin-dband-pixelsize ref=N2071_HAWC+D_i+var_Jy-arcs2 method=Nearest conserve=no rebin=no
+wcsalign in=N2071_Herschel_h2_cutout out=N2071_Herschel_h2_cutout_rebin-eband-pixelsize ref=N2071_HAWC+E_i+var_Jy-arcs2 method=Nearest conserve=no rebin=no
+wcsalign in=N2071_Herschel_T_cutout out=N2071_Herschel_T_cutout_rebin-jcmt-pixelsize ref=N2071_JCMT-850_i+var_Jy-arcs2_pix8_beam18 method=Nearest conserve=no rebin=no
+wcsalign in=N2071_Herschel_T_cutout out=N2071_Herschel_T_cutout_rebin-dband-pixelsize ref=N2071_HAWC+D_i+var_Jy-arcs2 method=Nearest conserve=no rebin=no
+wcsalign in=N2071_Herschel_T_cutout out=N2071_Herschel_T_cutout_rebin-eband-pixelsize ref=N2071_HAWC+E_i+var_Jy-arcs2 method=Nearest conserve=no rebin=no
+
+ndf2fits N2071_Herschel_h2_cutout_rebin-jcmt-pixelsize N2071_Herschel_h2_cutout_rebin-jcmt-pixelsize.fits
+ndf2fits N2071_Herschel_h2_cutout_rebin-dband-pixelsize N2071_Herschel_h2_cutout_rebin-dband-pixelsize.fits 
+ndf2fits N2071_Herschel_h2_cutout_rebin-eband-pixelsize N2071_Herschel_h2_cutout_rebin-eband-pixelsize.fits 
+ndf2fits N2071_Herschel_T_cutout_rebin-jcmt-pixelsize N2071_Herschel_T_cutout_rebin-jcmt-pixelsize.fits 
+ndf2fits N2071_Herschel_T_cutout_rebin-dband-pixelsize N2071_Herschel_T_cutout_rebin-dband-pixelsize.fits 
+ndf2fits N2071_Herschel_T_cutout_rebin-eband-pixelsize N2071_Herschel_T_cutout_rebin-eband-pixelsize.fits 

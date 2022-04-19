@@ -1,5 +1,4 @@
 ﻿
-
 export STARLINK_DIR=/data/lfanciullo/star-2018A  # Change this to the path to Starlink in your computer
 source $STARLINK_DIR/etc/profile
 
@@ -56,26 +55,6 @@ ndf2fits N2071_HAWC+E_i+var_Jy-arcs2_pix8-NN N2071_HAWC+E_i+var_Jy-arcs2_pix8.0-
 ndf2fits N2071_HAWC+E_q+var_Jy-arcs2_pix8-NN N2071_HAWC+E_q+var_Jy-arcs2_pix8.0-NN_beam18.9.fits
 ndf2fits N2071_HAWC+E_u+var_Jy-arcs2_pix8-NN N2071_HAWC+E_u+var_Jy-arcs2_pix8.0-NN_beam18.9.fits
 
-ndf2fits N2071_JCMT-850_i+var_Jy-arcs2_pix8_beam18 N2071_JCMT-850_i+var_Jy-arcs2_beam18.9_pix8.0.fits
-ndf2fits N2071_JCMT-850_q+var_Jy-arcs2_pix8_beam18 N2071_JCMT-850_q+var_Jy-arcs2_beam18.9_pix8.0.fits
-ndf2fits N2071_JCMT-850_u+var_Jy-arcs2_pix8_beam18 N2071_JCMT-850_u+var_Jy-arcs2_beam18.9_pix8.0.fits
-
-
-
-# Resample (without smoothing) Herschel maps
-
-fits2ndf Ancillary_Herschel_data/N2071_T_cutout-15arcm.fits Ancillary_Herschel_data/N2071_T_cutout-15arcm.sdf extable=tab2
-fits2ndf Ancillary_Herschel_data/N2071_tau154_cutout.fits Ancillary_Herschel_data/N2071_tau154_cutout.sdf extable=tab2
-fits2ndf Ancillary_Herschel_data/N2071_tau214_cutout.fits Ancillary_Herschel_data/N2071_tau214_cutout.sdf extable=tab2
-
-wcsalign in=Ancillary_Herschel_data/N2071_T_cutout-15arcm.sdf out=Ancillary_Herschel_data/N2071_T_cutout_rebin8.sdf ref=N2071_JCMT-850_i+var_Jy-arcs2_pix8_beam19 method=Nearest conserve=no rebin=no
-wcsalign in=Ancillary_Herschel_data/N2071_tau154_cutout.sdf out=Ancillary_Herschel_data/N2071_tau154_cutout_rebin8.sdf ref=N2071_JCMT-850_i+var_Jy-arcs2_pix8_beam19 method=Nearest conserve=no rebin=no
-wcsalign in=Ancillary_Herschel_data/N2071_tau214_cutout.sdf out=Ancillary_Herschel_data/N2071_tau214_cutout_rebin8.sdf ref=N2071_JCMT-850_i+var_Jy-arcs2_pix8_beam19 method=Nearest conserve=no rebin=no
-
-
-ndf2fits Ancillary_Herschel_data/N2071_T_cutout_rebin8 Ancillary_Herschel_data/N2071_T_cutout_rebin8.0.fits
-ndf2fits Ancillary_Herschel_data/N2071_tau154_cutout_rebin8 Ancillary_Herschel_data/N2071_tau154_cutout_rebin8.0.fits
-ndf2fits Ancillary_Herschel_data/N2071_tau214_cutout_rebin8 Ancillary_Herschel_data/N2071_tau214_cutout_rebin8.0.fits
-
-
-
+ndf2fits N2071_JCMT-850_i+var_Jy-arcs2_pix8_beam18 N2071_JCMT-850_i+var_Jy-arcs2_pix8.0_beam18.9.fits
+ndf2fits N2071_JCMT-850_q+var_Jy-arcs2_pix8_beam18 N2071_JCMT-850_q+var_Jy-arcs2_pix8.0_beam18.9.fits
+ndf2fits N2071_JCMT-850_u+var_Jy-arcs2_pix8_beam18 N2071_JCMT-850_u+var_Jy-arcs2_pix8.0_beam18.9.fits
