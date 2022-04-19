@@ -103,7 +103,6 @@ The values used in [Starlink_commands_HAWC+JCMT_sample.txt](Starlink_commands_HA
 
 
 ### *Herschel* data ###
-*Work in progress*
 
 To create a coutout of the N2071 region out of the whole Orion B map, one can run the following Python commands from the main repository:
 ~~~python
