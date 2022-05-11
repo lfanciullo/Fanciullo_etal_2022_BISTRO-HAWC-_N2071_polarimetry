@@ -115,7 +115,7 @@ herschel_cutout(folder_download + file_Herschel_T_large, fname_out = file_Hersch
 
 The two cutouts thus created -- one for the column density, one for dust temperature -- are saved by default in the *data_reprocessed/* folder. We recommend to use a value of 20 or higher for the 'size' parameter (cutout edge length, in arcmin). 
 
-To make a *P* vs. $\tau$ plot, as in section 3.4 of Fanciullo et al. 2022, the cutout maps need to be resampled to the pixel size of the HAWC+ and JCMT bands. This can be done by running the *Starlink* commands in [Starlink_commands_Herschel_sample.txt](Starlink_commands_Herschel_sample.txt) from inside the *data_reprocessed/* (or equivalent) folder. Note that these commands assume the default filenames from [varnames.py](varnames.py) are used; change the commands as appropriate if you are not using the default names.
+To make a *P* vs. &tau; plot, as in section 3.4 of Fanciullo et al. 2022, the cutout maps need to be resampled to the pixel size of the HAWC+ and JCMT bands. This can be done by running the *Starlink* commands in [Starlink_commands_Herschel_sample.txt](Starlink_commands_Herschel_sample.txt) from inside the *data_reprocessed/* (or equivalent) folder. Note that these commands assume the default filenames from [varnames.py](varnames.py) are used; change the commands as appropriate if you are not using the default names.
 
 
 Data analysis
