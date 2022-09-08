@@ -125,6 +125,11 @@ Running lines 1-442 of [data_analysis.py](data_analysis.py) reads the reformatte
 
 This provides the user with the quantities needed to recreate the analysis in Fanciullo et al. 2022.
 
+<!--- Works in progress:
+1. Herschel T and NH plots
+...
+--->
+
 
 Plots
 -----
